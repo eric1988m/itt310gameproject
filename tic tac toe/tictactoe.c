@@ -28,7 +28,7 @@ int main()
 	printf("\n\n\n\n");
 	if (!onlyOnce)
 	{
-		printMatrix(0);
+		printMatrix(1);
 		onlyOnce = 1;
 	}
 	else
