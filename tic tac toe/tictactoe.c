@@ -19,7 +19,7 @@ int main()
 	fflush(stdin);
 	
 	
-	printf("Enter name of user2 :");
+	printf(" Enter name of user2 :");
 	scanf_s(user2);
 	fflush(stdin);
 
