@@ -5,23 +5,24 @@
 
 // print matrix
 void printMatrix(char val);
+void inserValue(int i, int j, unsigned char user);
 unsigned char mat[3][3] = { '_', '_', '_', '_', '_', '_', '_', '_', '_' };
 unsigned char onlyOnce = 0;
 
 
 int main()
 {
-	unsigned char user1[35], user2[35], winner;
-	int ival, jval;
+	unsigned char user1[35], user2[35];
 
-	printf("\n Enter name of user1 :");
+	printf("\nEnter name of user1 : ");
 	scanf_s(user1);
 	fflush(stdin);
 	
-	
-	printf(" Enter name of user2 :");
+	printf("Enter name of user2 :");
 	scanf_s(user2);
 	fflush(stdin);
+
+	
 
 
 	system("clear");
@@ -38,6 +39,7 @@ int main()
 	
 	printf("\n");
 	return 0;
+	
 }
 
 void printMatrix(char val)
