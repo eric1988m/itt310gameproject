@@ -9,31 +9,33 @@ void printMatrix(char val);
 void inserValue(int i, int j, unsigned char user);
 
 
+
 unsigned char mat[3][3] = { '_', '_', '_', '_', '_', '_', '_', '_', '_' };
 unsigned char onlyOnce = 0;
-
+unsigned char usertern = 0;
 
 int main()
 {
 	// unsigned char for users 1 and users
-	unsigned char user1[35], user2[35];
+	unsigned char user1[35], user2[35], winner;
+	int ival, jval;
 
 
 	// print statement in quotation 
 	printf("\nEnter name of user1 : ");
 	// get user input 
-	scanf_s(user1);
+	gets(user1);
 
 	
 	// print statement in quotation
 	printf("Enter name of user2 :");
 	// get user input
-	scanf_s(user2);
+	gets(user2);
 	
 	
 	
 
-
+again:
 	// print 4 new lines
 	printf("\n\n\n\n");
 	// start of if statement
@@ -50,10 +52,12 @@ int main()
 		//printMatrix 
 		printMatrix(1);
 	}
-	// print a new line
-	printf("\n");
-	// end function
-	return 0;
+	winner = isOver();
+
+	if (winner)
+	{
+		pr
+	}
 	
 }
 // print matrix parameters
