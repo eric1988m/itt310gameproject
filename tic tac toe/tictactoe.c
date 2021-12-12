@@ -21,7 +21,7 @@ unsigned char usertern = 0;
 int main()
 {
 	// unsigned char for users 1 and users
-	unsigned char user1[35], user2[35];
+	unsigned char user1[30], user2[30], winner;
 	int ival, jval;
 
 
@@ -60,6 +60,23 @@ again:
 		//printMatrix 
 		printMatrix(1);
 	}
+	// execute isover function
+	winner = isOver();
+
+	if (winner)
+	{
+		// print the statement
+		printf("\n *** Congratulations dear %s, \n You have won the game!!!!", ((winner == 'X') ? user1 : user2));
+		goto end;
+
+	}
+
+	if (!isFull())
+	{
+		// print the statement
+		printf("\n *** Game over!!!");
+		goto end;
+	}
 	
 	
 repeat:
@@ -80,6 +97,8 @@ repeat:
 	usertern = !usertern;
 	goto again;
 
+
+end:
 	printf("\n");
 	return 0;
 }
@@ -122,4 +141,87 @@ void insertValue(int i, int j, unsigned char user)
 {
 	// printf("\n #### %d, %d ###\n",i,j);
 	mat[i][j] = ((user == 0x00) ? 'X' : 'O');
+}
+
+
+unsigned char isOver(void)
+{
+
+	unsigned char i, j, user;
+	unsigned char storeChar = 0, flag;
+	int sum = 0;
+	// case 1
+	// sum of x+x+x = 264 and sum of o+o+o = 237
+	flag = 0;
+	for (i = 0; i < 3; i++)
+	{
+		sum = 0;
+		for (j = 0; j < 3; j++)
+		{
+			if (mat[i][j] == '_')
+				break;
+			sum += mat[i][j];
+			storeChar = mat[i][j];
+		}
+
+		if (sum == 237 || sum == 264)
+		{
+			return storeChar;
+		}
+	}
+
+
+	// case 2
+	for (i = 0; i < 3; i++)
+	{
+		sum = 0;
+		for (j = 0; j < 3; j++)
+		{
+			if (mat[j][i] == '_')
+				break;
+			sum += mat[j][i];
+			storeChar = mat[j][i];
+		}
+
+		if (sum == 237 || sum == 264)
+		{
+			return storeChar;
+		}
+	}
+
+	//case 3 
+	for (i = 0; i < 3; i++)
+	{
+		sum = 0;
+		for (j = 0; j < 3; j++)
+		{
+			if (i == j)
+			{
+				if (mat[i][j] == '_')
+					break;
+				sum += mat[i][j];
+				storeChar = mat[i][j];
+			}
+		}
+		if (sum == 237 || sum == 264)
+		{
+			return storeChar;
+		}
+	}
+
+	return 0;
+}
+
+unsigned char isFull(void)
+{
+	unsigned char i, j, count = 0;
+	;
+	for (i = 0; i < 3; i++)
+		for (j = 0; j < 3; j++)
+		{
+			if (mat[i][j] == '_')
+				++count;
+		}
+	return count;
+				
 }
