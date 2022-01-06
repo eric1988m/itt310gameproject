@@ -28,14 +28,14 @@ int main()
 	// print statement in quotation 
 	printf("\nEnter name of user1 : ");
 	// get user input 
-	scanf_s(user1);
+	gets(user1);
 	fflush(stdin);
 
 	
 	// print statement in quotation
 	printf("Enter name of user2 :");
 	// get user input
-	scanf_s(user2);
+	gets(user2);
 	fflush(stdin);
 
 	
